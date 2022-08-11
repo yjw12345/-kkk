@@ -1,0 +1,11 @@
+// 重定义 element-plus 的主题色
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: (
+    'primary': (
+      'base': #f0bf1d,  // 修改主题色
+    ),
+  ),
+);
+
+@use "element-plus/theme-chalk/src/index.scss" as *;

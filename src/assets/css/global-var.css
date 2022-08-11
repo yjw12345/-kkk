@@ -1,0 +1,30 @@
+/* 这个文件用来填写全局的变量（原生） */
+
+:root {
+
+  /* 颜色 */
+  --theme-deep-color: #e542ac;
+  --theme-color: #c34e9a;
+  --theme-shallow-color: #d967b1;
+
+  --accent-deep: #f0bf1d;
+  --accent: #e4b92c;
+  
+  --font-default-color: #fff;
+
+  --bg-default-color: #324157;
+  --bg-deep-color: #242f42;
+  --bg-shadow-color: #465164;
+
+  
+  --red: rgb(214, 55, 55);
+  --white: #fff;
+  --black: #000;    
+  --yellow: rgb(241, 241, 77);
+
+  /* 长度 */
+
+  --header-height: 70px;
+  --sidebar-max-width: 250px;
+  --sidebar-min-width: 65px;
+} 
