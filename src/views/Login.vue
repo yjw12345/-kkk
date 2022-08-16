@@ -23,7 +23,7 @@
 </template>
 <script setup>
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .right{
     float: right;
 }

@@ -3,12 +3,12 @@ export const dataStore = defineStore({
   // id: 必须的，在所有 Store 中唯一
   id: "data",
   state: () => ({
-    errorData: [],
-    propertyData1: [],
-    propertyData2: [],
-    allconnectData: [],
-    resourceData: [],
-    errData: [],
+    // errorData: [],
+    // propertyData1: [],
+    // propertyData2: [],
+    // allconnectData: [],
+    // resourceData: [],
+    // errData: [],
     requestID: {
       "userId": "aa7385b487e84f28a5e43e7574f4f0aa",
       "deviceId": "e20ca6dd21964f99a7d514bc4c1264e1"
@@ -24,20 +24,20 @@ export const dataStore = defineStore({
 
   }),
   actions: {
-    getErrorData() { return this.errorData; },
-    setErrorData(data) { this.errorData = data; },
-    getPropertyData1() { return this.propertyData1; },
-    setPropertyData1(data) { this.propertyData1 = data; },
-    getPropertyData2() { return this.propertyData2; },
-    setPropertyData2(data) { this.propertyData2 = data; },
-    getAllconnectData() { return this.allconnectData; },
-    setAllconnectData(data) { this.allconnectData = data; },
-    getResourceData() { return this.resourceData; },
-    setResourceData(data) { this.resourceData = data; },
-    getErrData() { return this.errData; },
-    setErrData(data) { this.errData = data; },
-    getRequestID() { return this.requestID; },
-    setRequestID(data) { this.requestID = data; },
+    // getErrorData() { return this.errorData; },
+    // setErrorData(data) { this.errorData = data; },
+    // getPropertyData1() { return this.propertyData1; },
+    // setPropertyData1(data) { this.propertyData1 = data; },
+    // getPropertyData2() { return this.propertyData2; },
+    // setPropertyData2(data) { this.propertyData2 = data; },
+    // getAllconnectData() { return this.allconnectData; },
+    // setAllconnectData(data) { this.allconnectData = data; },
+    // getResourceData() { return this.resourceData; },
+    // setResourceData(data) { this.resourceData = data; },
+    // getErrData() { return this.errData; },
+    // setErrData(data) { this.errData = data; },
+    // getRequestID() { return this.requestID; },
+    // setRequestID(data) { this.requestID = data; },
 
     toggleCollapse() {
       this.collapse = !this.collapse

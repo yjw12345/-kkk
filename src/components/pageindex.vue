@@ -9,7 +9,7 @@
         :class="{ active: item.active }"
         @click="changepage(index)"
       >
-        <span>{{ item.page }}</span>
+        <span>{{ item.page.url }}</span>
       </div>
       <!-- <div class="pageitem"></div> -->
     </div>
@@ -20,8 +20,9 @@
 import { reactive, defineProps } from "vue-demi";
 
 const { pageAll } = defineProps(["pageAll"]);
-console.log(pageAll.length);
+console.log(pageAll.length);  
 function changepage(index) {
+  console.log(pageAll);
     for (const i of pageAll) {
         i.active=false
     }

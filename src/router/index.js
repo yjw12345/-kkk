@@ -19,12 +19,12 @@ const routes = [
 			meta: { title: '2', id: 2 },
 			component: () => import("../views/2.vue")
 		},
-		 {
-			path: "/map",
-			name: "map",
-			meta: { title: 'map', id: 6 },
-			component: () => import("../views/map.vue")
-		},
+		//  {
+		// 	path: "map",
+		// 	name: "map",
+		// 	meta: { title: 'map', id: 6 },
+		// 	component: () => import("../views/map.vue")
+		// },
 		 {
 			path: "/speed",
 			name: "Speed",
@@ -54,6 +54,24 @@ const routes = [
 			name: "probe",
 			meta: { title: 'probe', id: 6 },
 			component: () => import("../views/probe.vue")
+		},
+		 {
+			path: "/map",
+			name: "map",
+			meta: { title: 'map', id: 6 },
+			component: () => import("../views/map.vue")
+		},
+		 {
+			path: "/resource",
+			name: "resource",		
+			meta: { title: 'resource', id: 6 },
+			component: () => import("../views/Resource.vue")
+		},
+		 {
+			path: "/useraction",
+			name: "UserAction",		
+			meta: { title: 'UserAction', id: 6 },
+			component: () => import("../views/UserAction.vue")
 		},
 		{
 			path: "/overview-drawing",

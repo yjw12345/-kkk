@@ -1,0 +1,5 @@
+import{_ as t}from"./_plugin-vue_export-helper.cdc0426e.js";import{o as r,e as o,f as e}from"./index.d2d58ca2.js";const s={},c=e("div",{class:"probe"}," \u590D\u5236/\u7C98\u8D34BI\u63A2\u9488 ",-1),n=e("div",{class:"detail"}," \u590D\u5236\u4E0B\u65B9\u4EE3\u7801\u5E76\u7C98\u8D34\u81F3\u9875\u9762HTML\u7684body\u5143\u7D20\u4E2D\u3002 \u6CE8\u610F\uFF1A\u9700\u8981\u5C06\u4EE3\u7801\u7C98\u8D34\u5728body\u5143\u7D20\u5185\u5BB9\u7684\u7B2C\u4E00\u884C\u3002 ",-1),i=e("div",{class:"code"},[e("textarea",{readonly:"",rows:"7",class:"text-1lSLb"},`<script>\r
+!(function(c,b,d,a){c[a]||(c[a]={});c[a].config={pid:"b2m2rrngt3@6d1555e10ee7f23",appType:"web",imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",sendResource:true,enableLinkTrace:true,behavior:true};\r
+with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)\r
+})(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");\r
+<\/script>`)],-1),a=[c,n,i];function d(_,l,p,b,u,f){return r(),o("div",null,a)}const y=t(s,[["render",d]]);export{y as default};

@@ -10,10 +10,9 @@
 import { onMounted, ref, reactive, inject, nextTick } from "vue";
 import XHR from "../utils/request.js";
 import { dataStore } from "../store/piniastore-data.js";
-import echarts from "echarts";
+import * as echarts from "echarts";
 const dStore = dataStore();
 let property = ref(null);
-
 function drawproperty() {
   // 指标页面绘制
   let myChart = echarts.init(property.value);

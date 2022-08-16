@@ -25,7 +25,7 @@
 </template>
 <script setup>
 </script>
-<style lang="less">
+<style lang="less" scoped>
 .right{
     float: right;
 }
@@ -36,7 +36,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: linear-gradient(#141e30, #243b55);
+  background: linear-gradient(#141e30, #243b55) 
 }
 
 .login-box {

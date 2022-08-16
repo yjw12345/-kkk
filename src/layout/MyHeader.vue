@@ -58,19 +58,9 @@ export default {
     // console.log(dStore.username)
     const username = localStorage.getItem("username");
     let value = "First-canteen";
-    let options = [
-      {
-        value: "First-canteen",
-        label: "第一食堂",
-      },
-      {
-        value: "secound-canteen",
-        label: "第二食堂",
-      },
-    ];
+
     return {
       username,
-      options,
       value,
     };
   },

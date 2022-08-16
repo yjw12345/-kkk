@@ -1,1 +1,0 @@
-import{S as o}from"./showproperty3.ea62d554.js";import{o as r,g as t}from"./index.b524fb94.js";import"./request.09f09297.js";import"./piniastore-data.39fcbb8a.js";import"./_plugin-vue_export-helper.cdc0426e.js";const n={__name:"2",setup(p){return(e,a)=>(r(),t(o))}};export{n as default};

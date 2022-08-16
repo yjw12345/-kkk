@@ -17,25 +17,29 @@
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>
         <span class="menu-item-content">访问速度</span>
       </el-menu-item>
-      <el-menu-item index="/map">
+      <!-- <el-menu-item index="/map">
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>
         <span class="menu-item-content">地图</span>
-      </el-menu-item>
-      <el-menu-item index="/session">
+      </el-menu-item> -->
+      <!-- <el-menu-item index="/session">
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>
         <span class="menu-item-content">会话跟踪</span>
-      </el-menu-item>
+      </el-menu-item> -->
       <el-menu-item index="/error">
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>
-        <span class="menu-item-content">js异常</span>
+        <span class="menu-item-content">异常监控</span>
+      </el-menu-item>
+      <el-menu-item index="/resource">
+        <el-icon class="menu-item-content"><HomeFilled /></el-icon>
+        <span class="menu-item-content">页面资源加载</span>
       </el-menu-item>
       <el-menu-item index="/api">
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>
         <span class="menu-item-content">api请求</span>
       </el-menu-item>
-      <el-menu-item index="/probe">
+      <el-menu-item index="/useraction">
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>
-        <span class="menu-item-content">探针</span>
+        <span class="menu-item-content">用户行为追踪</span>
       </el-menu-item>
       <!-- <el-menu-item index="/1">
         <el-icon class="menu-item-content"><HomeFilled /></el-icon>

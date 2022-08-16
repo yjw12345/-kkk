@@ -23,8 +23,18 @@ const requestPost=function(api, argument, f1, f2) {
     f2(error);
   });
 }
+const normalPost=function(api, argument, f1, f2) {
+  return axios.post(`http://120.53.227.200:8081/${api}`,argument)
+  
+}
+const normalGet=function(api, argument, f1, f2) {
+  return axios.get(`http://120.53.227.200:8081/${api}`,argument)
+  
+}
 
 export default {
   requestGet,
-  requestPost
+  requestPost,
+  normalGet,
+  normalPost
 }

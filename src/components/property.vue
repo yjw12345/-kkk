@@ -20,7 +20,7 @@
             ></path></svg
           >总PV
         </div>
-        <div class="num">1</div>
+        <div class="num">{{pvnum}}</div>
       </div>
       <div class="item">
         <div class="text">
@@ -41,7 +41,7 @@
             ></path></svg
           >总UV
         </div>
-        <div class="num">1</div>
+        <div class="num">{{uvnum}}</div>
       </div>
     </div>
     <div id="main" ref="main"></div>
@@ -50,93 +50,174 @@
 
 
 <script setup>
-import echarts from "echarts    ";
+import * as echarts from "echarts    ";
 import { onMounted, ref } from "vue-demi";
-let option = {
-  // legend用于显示图标
-  // legend: {
-  //     orient: 'vertical',
-  //     right: 0,
-  //     bottom: 100
-  // },
-  color: ["#ffce03", "#00c1de"],
-  legend: {},
-  // 暂时不知道
-  tooltip: {
-    trigger: "axis",
-  },
-  xAxis: {
-    type: "time",
-    // splitNumber可以用于确定轴上显示的数目
-    splitNumber: 5,
-    splitLine: {
-      show: false,
-    },
-  },
-  yAxis: {
-    type: "value",
-    min: 0,
-    axisLabel: {
-      formatter: "{value} ",
-    },
-  },
-  series: [
-    {
-      encode: {
-        x: "time",
-        y: "PV",
-        seriesName: "PV",
-      },
-      type: "line",
-      smooth: true,
+import XHR from "../utils/request.js";
 
-      showSymbol: false,
+function gethour(ary) {
+  // 时间对象转化
+  function formatDateTime(theDate) {
+    let _year = theDate.getFullYear();
+    let _month = theDate.getMonth();
+    let _date = theDate.getDate();
+    let _hour = theDate.getHours();
+    let _minute = theDate.getMinutes();
+    let _second = theDate.getSeconds();
+    if (_month < 10) {
+      _month = "0" + (_month + 1);
+    }
+    if (_date < 10) {
+      _date = "0" + _date;
+    }
+    if (_hour < 10) {
+      _hour = "0" + _hour;
+    }
+    if (_minute < 10) {
+      _minute = "0" + _minute;
+    }
+    if (_second < 10) {
+      _second = "0" + _second;
+    }
+    // 暂时不需要秒和分
+    return (
+      _year + "-" + _month + "-" + _date + " " + _hour
+      // +
+      // ":" +
+      // _minute +
+      // ":" +
+      // _second
+    );
+  }
+  let getDateObj = (time) => {
+    let year = time.slice(0, 4);
+    let month = time.slice(5, 7);
+    let date = time.slice(8, 10);
+    let hour = time.slice(11, 13);
+    // date的特性
+    let dateobj = new Date(year, month - 1, date, hour);
+    return dateobj;
+  };
+  let old = getDateObj(ary[0].time);
+  let onehour = 3600 * 1000;
+  let now = getDateObj(formatDateTime(new Date()));
+  const dateary = [];
+  while (+old != +now) {
+    dateary.push(formatDateTime(old));
+    old = new Date(+old + onehour);
+  }
+  const countary = new Array(dateary.length).fill(0);
+
+  for (const i of ary) {
+    const time = i.time.slice(0, 13);
+    const index = dateary.indexOf(time);
+    if (index == -1) {
+      dateary.unshift(time);
+      countary.unshift(1);
+    } else {
+      countary[index]++;
+    }
+  }
+  return {
+    countary,
+    dateary,
+  };
+}
+
+const main = ref(null);
+let timeary;
+let pvary;
+let uvary;
+let pvnum=ref(0);
+let uvnum=ref(0)
+const init = (res) => {
+  console.log(res);
+  var myChart = echarts.init(main.value);
+  myChart.setOption(option);
+};
+
+onMounted(async () => {
+  await XHR.normalPost("api/data/pv", {
+    userId: "aa7385b487e84f28a5e43e7574f4f0aa",
+    deviceId: "e20ca6dd21964f99a7d514bc4c1264e1",
+  }).then(({data:{data}}) => {
+    let obj=gethour(data)
+    timeary=obj.dateary
+    pvary=obj.countary
+    pvnum.value=data.length
+  });
+  await XHR.normalPost("api/data/uv", {
+    userId: "aa7385b487e84f28a5e43e7574f4f0aa",
+    deviceId: "e20ca6dd21964f99a7d514bc4c1264e1",
+  }).then(({data:{data}}) => {
+    let obj=gethour(data)
+    timeary=obj.dateary
+    uvary=obj.countary
+    uvnum.value=data.length
+  });
+  // 图表加载
+  let option = {
+    // legend用于显示图标
+    // legend: {
+    //     orient: 'vertical',
+    //     right: 0,
+    //     bottom: 100
+    // },
+    dataZoom:{
+      type:"slider"
     },
-    {
-      encode: {
-        x: "time",
-        y: "UV",
-        seriesName: "UV",
-      },
-      type: "line",
-      showSymbol: false,
-      smooth: true,
+    dataset: {
+      dimensions: ["time", "PV", "UV"],
+      source: {
+        time:timeary,
+        PV:pvary,
+        UV:uvary
+      }
     },
-  ],
-  dataset: {
-    dimensions: ["time", "PV", "UV"],
-    source: [
+    color: ["#ffce03", "#00c1de"],
+    legend: {},
+    // 暂时不知道
+    tooltip: {
+      trigger: "axis",
+    },
+    xAxis: {
+      type: "time",
+      // splitNumber可以用于确定轴上显示的数目
+      splitNumber: 5,
+      splitLine: {
+        show: false,
+      },
+    },
+    yAxis: {
+      type: "value",
+      min: 0,
+      axisLabel: {
+        formatter: "{value} ",
+      },
+    },
+    series: [
       {
-        time: "2019-11-1 07:00:00",
-        PV: 0,
-        UV: 0,
+        encode: {
+          x: "time",
+          y: "PV",
+          seriesName: "PV",
+        },
+        type: "line",
+        smooth: true,
+
+        showSymbol: false,
       },
       {
-        time: "2019-11-1 08:00:00",
-        PV: 4,
-        UV: 2,
-      },
-      {
-        time: "2019-11-1 09:00:00",
-        PV: 0,
-        UV: 0,
-      },
-      {
-        time: "2019-11-1 10:00:00",
-        PV: 0,
-        UV: 0,
-      },
-      {
-        time: "2019-11-1 11:00:00",
-        PV: 0,
-        UV: 0,
+        encode: {
+          x: "time",
+          y: "UV",
+          seriesName: "UV",
+        },
+        type: "line",
+        showSymbol: false,
+        smooth: true,
       },
     ],
-  },
-};
-const main = ref(null);
-
-onMounted(() => {
+  };
   var myChart = echarts.init(main.value);
   myChart.setOption(option);
 });

@@ -1,16 +1,15 @@
 <template>
   <div class="speed">
-    <Pageindex :pageAll="pageAll" />
+    <!-- <Pageindex :pageAll="pageAll" /> -->
     <div class="propertyTotal">
-      <Showproperty1 />
-      <Showproperty2 />
+      <Showproperty5 />
     </div>
   </div>
 </template>
 
 <script setup>
 import Pageindex from "@/components/pageindex.vue";
-import Showproperty1 from "@/components/showproperty1.vue";
+import Showproperty5 from "@/components/showproperty5.vue";
 import Showproperty2 from "@/components/showproperty2.vue";
 import { reactive } from "vue";
 const pageAll = reactive([

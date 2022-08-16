@@ -1,0 +1,1 @@
+import{s as a}from"./index.d2d58ca2.js";const t=a({id:"data",state:()=>({requestID:{userId:"aa7385b487e84f28a5e43e7574f4f0aa",deviceId:"e20ca6dd21964f99a7d514bc4c1264e1"},collapse:!1,unread_message:0,username:""}),actions:{toggleCollapse(){this.collapse=!this.collapse},uploadMessage(e){e<0&&(e=0),this.unread_message=e},setUsername(e){this.username=e}}});export{t as d};
